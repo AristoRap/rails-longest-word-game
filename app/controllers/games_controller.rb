@@ -11,5 +11,6 @@ class GamesController < ApplicationController
     @letters
   end
 
-  def score; end
+  def score
+  end
 end
