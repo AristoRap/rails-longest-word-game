@@ -1,0 +1,18 @@
+<div class="container my-5">
+  <div class="p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg w-100">
+    <h1 class="display-4 p-3">New game</h1>
+    <div class="display-4 p-3">
+      <% @letters.each do |letter| %>
+        <h3 class='btn btn-outline-primary px-3 shadow'><%= letter.upcase %></h3>
+      <% end %>
+    </div>
+    <p class='lead pl-3 mb-2'>What is the longest word you can find?</p>
+    <div class="d-flex justify-content-md-start mb-lg-3 pl-3">
+      <form action="/score" class="d-flex rounded-3">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <input type="text" name="word" class="form-control" required="required">
+        <input type="submit" value="Play" class="ml-3 btn btn-primary">
+      </form>
+    </div>
+  </div>
+</div>
