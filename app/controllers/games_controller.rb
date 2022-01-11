@@ -12,9 +12,16 @@ class GamesController < ApplicationController
   end
 
   def score
+    @letters = params[:letters]
     @guess = params[:word]
-    url = "https://wagon-dictionary.herokuapp.com/#{@guess}"
-    word_serialized = URI.open(url)
-    @result = JSON.parse(word_serialized)
+    exists?(@guess)
+  end
+
+  private
+
+  def exists?(word)
+    url = "https://wagon-dictionary.herokuapp.com/#{word}"
+    word_serialized = URI.parse(url).read
+    JSON.parse(word_serialized)['found']
   end
 end
