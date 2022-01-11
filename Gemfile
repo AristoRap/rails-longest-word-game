@@ -28,6 +28,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'pry-byebug'
+  gem 'open-uri', '~> 0.2.0'
 end
 
 group :development do

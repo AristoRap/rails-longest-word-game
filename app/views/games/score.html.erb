@@ -1,0 +1,13 @@
+<div class="container my-5">
+  <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+    <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+      <h1 class="display-4 mb-3">Result</h1>
+        <div class="border-thick-left mb-3 pl-3 mb-4 mb-lg-3">
+          <p class="lead"><%= @guess.capitalize %> / <%= @result %></p>
+        </div>
+    </div>
+    <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+    <%= link_to("Play again", :new, { class: "lead btn btn-outline-primary" }) %>
+    </div>
+  </div>
+</div>
