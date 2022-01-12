@@ -14,8 +14,11 @@ class GamesController < ApplicationController
   def score
     @letters = params[:letters]
     @guess = params[:word]
-    exists?(@guess)
-    possible?(@guess, @letters)
+    @result = "This word can't be formed with the available letters"
+    if possible?(@guess, @letters)
+      @result = exists?(@guess) ? "Nice! \"#{@guess.capitalize}\" is a good choice." : "Sorry, this word doesn't exist..."
+    end
+    @result
   end
 
   private
