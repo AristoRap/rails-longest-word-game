@@ -15,6 +15,7 @@ class GamesController < ApplicationController
     @letters = params[:letters]
     @guess = params[:word]
     exists?(@guess)
+    possible?(@guess, @letters)
   end
 
   private
@@ -23,5 +24,12 @@ class GamesController < ApplicationController
     url = "https://wagon-dictionary.herokuapp.com/#{word}"
     word_serialized = URI.parse(url).read
     JSON.parse(word_serialized)['found']
+  end
+
+  def possible?(word, letters)
+    word.split('').each do |ltr|
+      return false unless letters.split.include?(ltr)
+    end
+    true
   end
 end
